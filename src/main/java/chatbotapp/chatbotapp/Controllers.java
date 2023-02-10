@@ -30,25 +30,43 @@ public class Controllers {
 
         if (newWebRequest.getQueryResult().getParameters().get("genre") == null || newWebRequest.getQueryResult().getParameters().get("genre").equals("")) {
 
-            java.util.List<Button> buttons;
+            java.util.List<Suggestion> suggestions;
 
-            buttons = new ArrayList<Button>();
-            buttons.add(new Button().setText("Science-fiction"));
-            buttons.add(new Button().setText("Comedie"));
+            suggestions = new ArrayList<Suggestion>();
+            suggestions.add(new Suggestion().setTitle("Science-fiction"));
+            suggestions.add(new Suggestion().setTitle("Comedie"));
+            suggestions.add(new Suggestion().setTitle("Aventure"));
+            suggestions.add(new Suggestion().setTitle("Action"));
+
+
+            java.util.List<SimpleResponse> sampleResponses;
+
+            sampleResponses = new ArrayList<SimpleResponse>();
+            sampleResponses.add(new SimpleResponse().setSsml("").
+                    setDisplayText("").setTextToSpeech("Tres bien. Quel genre de films veux-tu voir ?"));
+
 
             java.util.List<FulfillmentMessages> fulfillmentMessages;
 
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
-            fulfillmentMessages.add(new FulfillmentMessages().setCard(new Card().setButtons(buttons)));
+            fulfillmentMessages.add(new FulfillmentMessages().
+                    setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
+            );
+
+            fulfillmentMessages.add(new FulfillmentMessages().
+                    setSuggestions(new Suggestions().
+                            setSuggestions(suggestions)
+                    )
+            );
 
             response.setFulfillmentMessages(fulfillmentMessages);
 
 
-            response.setFulfillmentText("Tres bien. Quel genre de films veux-tu voir ?");
+            response.setFulfillmentText("Tres bien. Quel genre de films veux-tu voir - A?");
 
             return response;
         }
-        return new WebhookResponse().setFulfillmentText("Avatar");
+        return response.setFulfillmentText("Avatar");
     }
 }
