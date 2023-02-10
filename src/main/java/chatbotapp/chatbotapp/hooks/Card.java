@@ -9,5 +9,6 @@ public class Card {
     private String title;
     private String subtitle;
 
+    private String imageUri;
     private List<Button> buttons;
 }
