@@ -23,7 +23,7 @@ public class HelloController {
 
     @PostMapping("/conseilfilm")
     public WebhookResponse conseilfilm(@RequestBody WebhookRequest newWebRequest) {
-        if( newWebRequest.getParameters().get("genre") == null || newWebRequest.getParameters().get("genre").equals("")) {
+        if( newWebRequest.getQueryResult().getParameters().get("genre") == null || newWebRequest.getQueryResult().getParameters().get("genre").equals("")) {
             return new WebhookResponse().setFulfillmentText("SVP ! saisez le genre de films 😁");
         }
         return new WebhookResponse().setFulfillmentText("Avatar");
