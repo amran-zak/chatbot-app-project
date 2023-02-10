@@ -23,9 +23,9 @@ public class HelloController {
 
     @PostMapping("/conseilfilm")
     public WebhookResponse conseilfilm(@RequestBody WebhookRequest newWebRequest) {
-        log.info("{}",newWebRequest);
-        WebhookResponse response = new WebhookResponse().setFulfillmentText("Avatar");
-        log.info("{}",response);
-        return response;
+        if(newWebRequest.getParameters() == null) {
+            return new WebhookResponse().setFulfillmentText("SVP ! saisez le genre de films 😁");
+        }
+        return new WebhookResponse().setFulfillmentText("Avatar");
     }
 }
