@@ -33,8 +33,8 @@ public class Controllers {
             java.util.List<Suggestion> suggestions;
 
             suggestions = new ArrayList<Suggestion>();
-            suggestions.add(new Suggestion().setTitle("Science-fiction"));
-            suggestions.add(new Suggestion().setTitle("Comedie"));
+            suggestions.add(new Suggestion().setTitle("Science fiction"));
+            suggestions.add(new Suggestion().setTitle("Comédie"));
             suggestions.add(new Suggestion().setTitle("Aventure"));
             suggestions.add(new Suggestion().setTitle("Action"));
 
@@ -68,7 +68,7 @@ public class Controllers {
         }
 
 
-        if(newWebRequest.getQueryResult().getParameters().get("genre").equals("Science-fiction")) {
+        if(newWebRequest.getQueryResult().getParameters().get("genre").equals("Science fiction")) {
             java.util.List<FulfillmentMessages> fulfillmentMessages;
 
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
@@ -100,7 +100,7 @@ public class Controllers {
             response.setFulfillmentMessages(fulfillmentMessages);
             return  response;
         }
-        else if(newWebRequest.getQueryResult().getParameters().get("genre").equals("Comedie")) {
+        else if(newWebRequest.getQueryResult().getParameters().get("genre").equals("Comédie")) {
             java.util.List<FulfillmentMessages> fulfillmentMessages;
 
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
