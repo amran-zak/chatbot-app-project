@@ -69,9 +69,20 @@ public class Controllers {
 
 
         if(newWebRequest.getQueryResult().getParameters().get("genre").equals("Science fiction")) {
+
+            java.util.List<SimpleResponse> sampleResponses;
+
+            sampleResponses = new ArrayList<SimpleResponse>();
+            sampleResponses.add(new SimpleResponse().setSsml("").
+                    setDisplayText("").setTextToSpeech("Tres bien. Voici les meilleurs films de Science fiction"));
+
             java.util.List<FulfillmentMessages> fulfillmentMessages;
 
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
+
+            fulfillmentMessages.add(new FulfillmentMessages().
+                    setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
+            );
 
             java.util.List<Item> items;
 
@@ -101,9 +112,19 @@ public class Controllers {
             return  response;
         }
         else if(newWebRequest.getQueryResult().getParameters().get("genre").equals("Comédie")) {
+            java.util.List<SimpleResponse> sampleResponses;
+
+            sampleResponses = new ArrayList<SimpleResponse>();
+            sampleResponses.add(new SimpleResponse().setSsml("").
+                    setDisplayText("").setTextToSpeech("Tres bien. Voici les meilleurs films de Comédie"));
+
             java.util.List<FulfillmentMessages> fulfillmentMessages;
 
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
+
+            fulfillmentMessages.add(new FulfillmentMessages().
+                    setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
+            );
 
             java.util.List<Item> items;
 
