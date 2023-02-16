@@ -12,7 +12,7 @@ public class FulfillmentMessages {
     private Suggestions suggestions;
 
     private SimpleResponses simpleResponses;
-
+    private CarouselSelect carouselSelect;
 
 
 
