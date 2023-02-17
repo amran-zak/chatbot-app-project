@@ -1,4 +1,4 @@
-package chatbotapp.chatbotapp.hooks;
+package chatbotapp.chatbotapp.models;
 
 import lombok.Data;
 

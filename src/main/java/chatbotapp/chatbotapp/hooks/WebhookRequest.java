@@ -1,9 +1,8 @@
 package chatbotapp.chatbotapp.hooks;
 
 
+import chatbotapp.chatbotapp.models.QueryResult;
 import lombok.Data;
-
-import java.util.Map;
 
 @Data
 public class WebhookRequest {
