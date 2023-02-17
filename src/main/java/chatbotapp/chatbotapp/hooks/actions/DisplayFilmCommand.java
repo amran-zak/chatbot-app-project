@@ -43,7 +43,8 @@ public class DisplayFilmCommand implements WebhookCommand {
             items.add(new Item().setTitle(responseMovieDB.getBody().getResults().get(0).getTitle())
                     .setDescription(responseMovieDB.getBody().getResults().get(0).getOverview())
                     .setInfo(new SelectItemInfo().setKey(responseMovieDB.getBody().getResults().get(0).getId()))
-                    .setImage(new Image().setImageUri("https://image.tmdb.org/t/p/w500"+responseMovieDB.getBody().getResults().get(0).getPoster_path())));
+                    .setImage(new Image().setImageUri(
+                            "https://image.tmdb.org/t/p/w500"+responseMovieDB.getBody().getResults().get(0).getPoster_path())));
             //Stalker
             responseMovieDB = restTemplate.getForEntity(
                     url + "Stalker", ResponseMovieDB.class);

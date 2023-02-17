@@ -13,6 +13,7 @@ public class FulfillmentMessages {
 
     private SimpleResponses simpleResponses;
     private CarouselSelect carouselSelect;
+    private TableCard tableCard;
 
 
 
