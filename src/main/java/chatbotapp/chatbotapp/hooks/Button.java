@@ -4,5 +4,6 @@ import lombok.Data;
 
 @Data
 public class Button {
-    private String text;
+    private String title;
+    private OpenUriAction openUriAction;
 }

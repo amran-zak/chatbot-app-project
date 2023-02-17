@@ -8,7 +8,7 @@ public class FulfillmentMessages {
 
     private String platform = "ACTIONS_ON_GOOGLE";
 
-    private Card card;
+    private Card basicCard;
     private Suggestions suggestions;
 
     private SimpleResponses simpleResponses;
