@@ -40,7 +40,7 @@ public class WebhookInvocator {
             return commands.get(Step.ASK_GENRE).execute(request);
         } else if(!(request.getQueryResult().getParameters().get("genre") == null
                 ||request.getQueryResult().getParameters().get("genre").equals(""))
-                && request.getQueryResult().getAction().equals("ConseilFilm")){
+                && request.getQueryResult().getAction().equals("ConseilFilm.ConseilFilm-custom")){
             return commands.get(Step.DISPLAY_FILM).execute(request);
         } else if (!(request.getQueryResult().getParameters().get("film") == null
                 ||request.getQueryResult().getParameters().get("film").equals(""))
