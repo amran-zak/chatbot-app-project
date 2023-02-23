@@ -6,7 +6,7 @@ import lombok.Data;
 public class FulfillmentMessages {
 
 
-    private String platform = "ACTIONS_ON_GOOGLE";
+    private String platform = "SLACK";
 
     private Card basicCard;
     private Suggestions suggestions;
@@ -15,6 +15,10 @@ public class FulfillmentMessages {
     private CarouselSelect carouselSelect;
     private TableCard tableCard;
 
+    private  Payload payload;
+
 
 
 }
+
+

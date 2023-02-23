@@ -16,34 +16,33 @@ public class AskGenreCommand implements WebhookCommand {
 
         WebhookResponse response = new WebhookResponse();
 
+        java.util.List<FulfillmentMessages> fulfillmentMessages;
+
+        fulfillmentMessages = new ArrayList<FulfillmentMessages>();
+
+        Payload payload = new Payload();
+        payload.setSlack(new Slack().setText("Tres bien. Quel genre de films veux-tu voir ?"));
+        fulfillmentMessages.add(new FulfillmentMessages().setPayload(payload));
+
+        /*java.util.List<SimpleResponse> sampleResponses;
+        sampleResponses = new ArrayList<SimpleResponse>();
+        sampleResponses.add(new SimpleResponse().setSsml("").
+                setDisplayText("").setTextToSpeech("Tres bien. Quel genre de films veux-tu voir ?"));
+        fulfillmentMessages.add(new FulfillmentMessages().
+                setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
+        );
+
         java.util.List<Suggestion> suggestions;
         suggestions = new ArrayList<Suggestion>();
         suggestions.add(new Suggestion().setTitle("Science fiction"));
         suggestions.add(new Suggestion().setTitle("Comédie"));
         suggestions.add(new Suggestion().setTitle("Aventure"));
         suggestions.add(new Suggestion().setTitle("Action"));
-
-
-        java.util.List<SimpleResponse> sampleResponses;
-
-        sampleResponses = new ArrayList<SimpleResponse>();
-        sampleResponses.add(new SimpleResponse().setSsml("").
-                setDisplayText("").setTextToSpeech("Tres bien. Quel genre de films veux-tu voir ?"));
-
-
-        java.util.List<FulfillmentMessages> fulfillmentMessages;
-
-        fulfillmentMessages = new ArrayList<FulfillmentMessages>();
-
-        fulfillmentMessages.add(new FulfillmentMessages().
-                setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
-        );
-
         fulfillmentMessages.add(new FulfillmentMessages().
                 setSuggestions(new Suggestions().
                         setSuggestions(suggestions)
                 )
-        );
+        );*/
 
         response.setFulfillmentMessages(fulfillmentMessages);
 
