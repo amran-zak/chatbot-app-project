@@ -4,6 +4,7 @@ import chatbotapp.chatbotapp.hooks.WebhookCommand;
 import chatbotapp.chatbotapp.hooks.WebhookRequest;
 import chatbotapp.chatbotapp.hooks.WebhookResponse;
 import chatbotapp.chatbotapp.models.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -11,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 
 @Service
+@Slf4j
 public class AskPlatformCommand implements WebhookCommand {
     @Override
     public WebhookResponse execute(WebhookRequest request) {
@@ -67,31 +69,56 @@ public class AskPlatformCommand implements WebhookCommand {
         //US
         cells = new ArrayList<TableCardCell>();
         cells.add(new TableCardCell().setText("Etats-Unis"));
-        cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("US").getFlatrate().get(0).getProvider_name()));
+        //log.info("{}", responseMovieDB1.getBody().getResults().get("US").getFlatrate());
+        if(responseMovieDB1.getBody().getResults().get("US").getFlatrate() == null){
+            cells.add(new TableCardCell().setText("Non disponnible"));
+
+        }else{
+            cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("US").getFlatrate().get(0).getProvider_name()));
+        }
         rows.add(new TableCardRow().setCells(cells));
 
         //JP
         cells = new ArrayList<TableCardCell>();
         cells.add(new TableCardCell().setText("Japon"));
-        cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("JP").getFlatrate().get(0).getProvider_name()));
-        rows.add(new TableCardRow().setCells(cells));
+        if(responseMovieDB1.getBody().getResults().get("JP").getFlatrate() == null){
+            cells.add(new TableCardCell().setText("Non disponnible"));
+
+        }else{
+            cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("JP").getFlatrate().get(0).getProvider_name()));
+        }rows.add(new TableCardRow().setCells(cells));
 
         //GB
         cells = new ArrayList<TableCardCell>();
         cells.add(new TableCardCell().setText("Royaume-Uni"));
-        cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("GB").getFlatrate().get(0).getProvider_name()));
+        if(responseMovieDB1.getBody().getResults().get("GB").getFlatrate() == null){
+            cells.add(new TableCardCell().setText("Non disponnible"));
+
+        }else{
+            cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("GB").getFlatrate().get(0).getProvider_name()));
+        }
         rows.add(new TableCardRow().setCells(cells));
 
         //BE
         cells = new ArrayList<TableCardCell>();
         cells.add(new TableCardCell().setText("Belgique"));
-        cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("BE").getFlatrate().get(0).getProvider_name()));
+        if(responseMovieDB1.getBody().getResults().get("BE").getFlatrate() == null){
+            cells.add(new TableCardCell().setText("Non disponnible"));
+
+        }else{
+            cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("BE").getFlatrate().get(0).getProvider_name()));
+        }
         rows.add(new TableCardRow().setCells(cells));
 
         //FR
         cells = new ArrayList<TableCardCell>();
         cells.add(new TableCardCell().setText("France"));
-        cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("FR").getFlatrate().get(0).getProvider_name()));
+        if(responseMovieDB1.getBody().getResults().get("FR").getFlatrate() == null){
+            cells.add(new TableCardCell().setText("Non disponnible"));
+
+        }else{
+            cells.add(new TableCardCell().setText(responseMovieDB1.getBody().getResults().get("FR").getFlatrate().get(0).getProvider_name()));
+        }
         rows.add(new TableCardRow().setCells(cells));
 
         //add rows
