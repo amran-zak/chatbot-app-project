@@ -18,18 +18,23 @@ public class WebhookInvocator {
                             DefaultResponse defaultResponse,
                             DisplayPizza displayPizza,
                             AskDessert askDessert,
-                            AskComplement askComplement){
+                            AskComplement askComplement,
+                            ClotureCommand clotureCommand){
         commands = Map.of(Step.ASK_NAME_PIZZA, askNamePizza,
                 Step.DEFAULT_RESPONSE, defaultResponse,
                 Step.DISPLAY_PIZZA, displayPizza,
                 Step.ASK_DESSERT, askDessert,
-                Step.ASK_COMPLEMENT, askComplement);
+                Step.ASK_COMPLEMENT, askComplement,
+                Step.CLOTURE_COMMAND, clotureCommand);
     }
 
 
     public  WebhookResponse execute(WebhookRequest request){
         if(request.getQueryResult().getAction().equals("askDessert")){
             return commands.get(Step.ASK_DESSERT).execute(request);
+        }
+        if(request.getQueryResult().getAction().equals("clotureCommande")){
+            return commands.get(Step.CLOTURE_COMMAND).execute(request);
         }
         if ((request.getQueryResult().getParameters().get("pizzaName") == null
                 || request.getQueryResult().getParameters().get("pizzaName").equals(""))
