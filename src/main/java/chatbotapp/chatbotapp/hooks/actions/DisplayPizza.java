@@ -15,7 +15,7 @@ public class DisplayPizza implements WebhookCommand {
     public WebhookResponse execute(WebhookRequest request) {
         WebhookResponse response = new WebhookResponse();
 
-        if(request.getQueryResult().getParameters().get("pizzaName").equals("Classiques")) {
+        if(request.getQueryResult().getParameters().get("pizzaName").equals("Base Créme")) {
             java.util.List<FulfillmentMessages> fulfillmentMessages;
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
@@ -64,7 +64,7 @@ public class DisplayPizza implements WebhookCommand {
             response.setFulfillmentMessages(fulfillmentMessages);
             return  response;
         }
-        else if(request.getQueryResult().getParameters().get("pizzaName").equals("Gourmandes")) {
+        else if(request.getQueryResult().getParameters().get("pizzaName").equals("Base Tomate")) {
             java.util.List<FulfillmentMessages> fulfillmentMessages;
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
@@ -113,7 +113,7 @@ public class DisplayPizza implements WebhookCommand {
             response.setFulfillmentMessages(fulfillmentMessages);
             return response;
         }
-        else if(request.getQueryResult().getParameters().get("pizzaName").equals("Végétariennes")) {
+        else if(request.getQueryResult().getParameters().get("pizzaName").equals("Base sucrée")) {
             java.util.List<FulfillmentMessages> fulfillmentMessages;
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
