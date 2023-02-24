@@ -15,9 +15,11 @@ public class WebhookInvocator {
     private Map<Step, WebhookCommand> commands;
 
     public WebhookInvocator(AskNamePizza askNamePizza,
-                            DefaultResponse defaultResponse){
+                            DefaultResponse defaultResponse,
+                            DisplayPizza displayPizza){
         commands = Map.of(Step.ASK_NAME_PIZZA, askNamePizza,
-                Step.DEFAULT_RESPONSE, defaultResponse);
+                Step.DEFAULT_RESPONSE, defaultResponse,
+                Step.DISPLAY_PIZZA, displayPizza);
     }
 
 
@@ -32,11 +34,12 @@ public class WebhookInvocator {
         {
             return commands.get(Step.ASK_NAME_PIZZA).execute(request);
         }
-        /*else if(!(request.getQueryResult().getParameters().get("genre") == null
-                ||request.getQueryResult().getParameters().get("genre").equals(""))
-                && request.getQueryResult().getAction().equals("ConseilFilm.ConseilFilm-custom")){
-            return commands.get(Step.DISPLAY_FILM).execute(request);
-        } else if (!(request.getQueryResult().getParameters().get("film") == null
+       else if(!(request.getQueryResult().getParameters().get("pizzaName") == null
+                ||request.getQueryResult().getParameters().get("pizzaName").equals(""))
+                && (request.getQueryResult().getAction().equals("command_pizza")
+                ||request.getQueryResult().getAction().equals("command_pizza")) ){
+            return commands.get(Step.DISPLAY_PIZZA).execute(request);
+        }  /* else if (!(request.getQueryResult().getParameters().get("film") == null
                 ||request.getQueryResult().getParameters().get("film").equals(""))
                 && request.getQueryResult().getAction().equals("diffusion")) {
             return commands.get(Step.ASK_PLATFORM).execute(request);

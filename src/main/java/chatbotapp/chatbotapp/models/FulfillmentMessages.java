@@ -6,7 +6,7 @@ import lombok.Data;
 public class FulfillmentMessages {
 
 
-    private String platform = "SLACK";
+    private String platform = "ACTIONS_ON_GOOGLE";
 
     private Card basicCard;
     private Suggestions suggestions;
