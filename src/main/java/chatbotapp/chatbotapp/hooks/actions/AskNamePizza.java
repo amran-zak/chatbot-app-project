@@ -19,25 +19,21 @@ public class AskNamePizza implements WebhookCommand  {
 
         fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
-        Payload payload = new Payload();
-        payload.setSlack(new Slack().setText("Tres bien, quelle catégorie ?"));
-        fulfillmentMessages.add(new FulfillmentMessages().setPayload(payload).setPlatform("SLACK"));
-
 
 
         java.util.List<SimpleResponse> sampleResponses;
         sampleResponses = new ArrayList<SimpleResponse>();
         sampleResponses.add(new SimpleResponse().setSsml("").
-                setDisplayText("").setTextToSpeech("Tres bien, quelle catégorie ?"));
+                setDisplayText("").setTextToSpeech("Tres bien, quelle base ?"));
         fulfillmentMessages.add(new FulfillmentMessages().
                 setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
         );
 
         java.util.List<Suggestion> suggestions;
         suggestions = new ArrayList<Suggestion>();
-        suggestions.add(new Suggestion().setTitle("Classiques"));
-        suggestions.add(new Suggestion().setTitle("Gourmandes"));
-        suggestions.add(new Suggestion().setTitle("Végétariennes"));
+        suggestions.add(new Suggestion().setTitle("Base Tomate"));
+        suggestions.add(new Suggestion().setTitle("Base Créme"));
+        suggestions.add(new Suggestion().setTitle("Base sucrée"));
         fulfillmentMessages.add(new FulfillmentMessages().
                 setSuggestions(new Suggestions().
                         setSuggestions(suggestions)
