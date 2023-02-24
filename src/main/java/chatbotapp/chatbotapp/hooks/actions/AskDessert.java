@@ -28,7 +28,7 @@ public class AskDessert implements WebhookCommand {
         java.util.List<SimpleResponse> sampleResponses;
         sampleResponses = new ArrayList<SimpleResponse>();
         sampleResponses.add(new SimpleResponse().setSsml("").
-                setDisplayText("").setTextToSpeech("Et " + key + " ! Souhaites tu autre chose"));
+                setDisplayText("").setTextToSpeech("Et " + key + " ! Souhaites tu autre chose ?"));
         fulfillmentMessages.add(new FulfillmentMessages().
                 setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
         );
