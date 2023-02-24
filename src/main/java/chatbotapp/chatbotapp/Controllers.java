@@ -33,4 +33,9 @@ public class Controllers {
     public WebhookResponse commandePizza(@RequestBody WebhookRequest newWebRequest) {
         return webhookInvocator.execute(newWebRequest);
     }
+    
+     @PostMapping("/examen-pizza-app")
+    public WebhookResponse commandePizza(@RequestBody WebhookRequest newWebRequest) {
+        return webhookInvocator.execute(newWebRequest);
+    }
 }
