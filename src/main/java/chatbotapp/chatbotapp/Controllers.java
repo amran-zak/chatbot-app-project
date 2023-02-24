@@ -22,15 +22,12 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class Controllers {
 
-    @GetMapping("/")
-    public String hello() {
-        return "Bienvenue dans app-commande-pizza";
-    }
-
     private WebhookInvocator webhookInvocator;
 
-    @PostMapping("/commande-pizza")
+      
+     @PostMapping("/examen-pizza-app")
     public WebhookResponse commandePizza(@RequestBody WebhookRequest newWebRequest) {
         return webhookInvocator.execute(newWebRequest);
     }
+ 
 }
