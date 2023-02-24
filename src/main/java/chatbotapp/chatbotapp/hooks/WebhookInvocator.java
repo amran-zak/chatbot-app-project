@@ -9,36 +9,30 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-
 public class WebhookInvocator {
 
 
     private Map<Step, WebhookCommand> commands;
 
-    public WebhookInvocator(AskGenreCommand askGenreCommand,
-                            DefaultCommand defaultCommand,
-                            DisplayFilmCommand displayFilmCommand,
-                            DisplayDetailsCommand displayDetailsCommand,
-                            AskPlatformCommand askPlatformCommand){
-        commands = Map.of(Step.ASK_GENRE, askGenreCommand,
-                Step.DEFAULT_GENRE, defaultCommand,
-                Step.DISPLAY_FILM, displayFilmCommand,
-                Step.DISPLAY_DETAILS, displayDetailsCommand,
-                Step.ASK_PLATFORM, askPlatformCommand);
+    public WebhookInvocator(AskNamePizza askNamePizza,
+                            DefaultResponse defaultResponse){
+        commands = Map.of(Step.ASK_NAME_PIZZA, askNamePizza,
+                Step.DEFAULT_RESPONSE, defaultResponse);
     }
 
 
     public  WebhookResponse execute(WebhookRequest request){
-        if(request.getQueryResult().getAction().equals("voirPlus")){
+        /*if(request.getQueryResult().getAction().equals("voirPlus")){
             return commands.get(Step.DISPLAY_DETAILS).execute(request);
-        }
-        if ((request.getQueryResult().getParameters().get("genre") == null
-                || request.getQueryResult().getParameters().get("genre").equals(""))
-                && request.getQueryResult().getAction().equals("ConseilFilm")
+        }*/
+        if ((request.getQueryResult().getParameters().get("pizzaName") == null
+                || request.getQueryResult().getParameters().get("pizzaName").equals(""))
+                && request.getQueryResult().getAction().equals("command_pizza")
         )
         {
-            return commands.get(Step.ASK_GENRE).execute(request);
-        } else if(!(request.getQueryResult().getParameters().get("genre") == null
+            return commands.get(Step.ASK_NAME_PIZZA).execute(request);
+        }
+        /*else if(!(request.getQueryResult().getParameters().get("genre") == null
                 ||request.getQueryResult().getParameters().get("genre").equals(""))
                 && request.getQueryResult().getAction().equals("ConseilFilm.ConseilFilm-custom")){
             return commands.get(Step.DISPLAY_FILM).execute(request);
@@ -46,7 +40,7 @@ public class WebhookInvocator {
                 ||request.getQueryResult().getParameters().get("film").equals(""))
                 && request.getQueryResult().getAction().equals("diffusion")) {
             return commands.get(Step.ASK_PLATFORM).execute(request);
-        }
-        return commands.get(Step.DEFAULT_GENRE).execute(request);
+        }*/
+        return commands.get(Step.DEFAULT_RESPONSE).execute(request);
     }
 }
