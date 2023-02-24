@@ -6,46 +6,44 @@ import chatbotapp.chatbotapp.hooks.WebhookResponse;
 import chatbotapp.chatbotapp.models.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 
 @Service
-public class AskNamePizza implements WebhookCommand  {
+public class AskDessert implements WebhookCommand {
     public WebhookResponse execute(WebhookRequest request) {
-
         WebhookResponse response = new WebhookResponse();
 
+        String key = "";
+        for(OutputContext i : request.getQueryResult().getOutputContexts()) {
+            if(i.getName().endsWith("actions_intent_option")) {
+                key = (String) i.getParameters().get("OPTION");
+                break;
+            }
+        }
         java.util.List<FulfillmentMessages> fulfillmentMessages;
-
         fulfillmentMessages = new ArrayList<FulfillmentMessages>();
-
-        /*Payload payload = new Payload();
-        payload.setSlack(new Slack().setText("Tres bon choix 👍, laquelle choisis-tu 🤔?"));
-        fulfillmentMessages.add(new FulfillmentMessages().setPayload(payload));*/
 
         java.util.List<SimpleResponse> sampleResponses;
         sampleResponses = new ArrayList<SimpleResponse>();
         sampleResponses.add(new SimpleResponse().setSsml("").
-                setDisplayText("").setTextToSpeech("Tres bien, quelle catégorie ?"));
+                setDisplayText("").setTextToSpeech("Et " + key + " ! Souhaites tu autre chose"));
         fulfillmentMessages.add(new FulfillmentMessages().
                 setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
         );
 
         java.util.List<Suggestion> suggestions;
         suggestions = new ArrayList<Suggestion>();
-        suggestions.add(new Suggestion().setTitle("Classiques"));
-        suggestions.add(new Suggestion().setTitle("Gourmandes"));
-        suggestions.add(new Suggestion().setTitle("Végétariennes"));
+        suggestions.add(new Suggestion().setTitle("Oui"));
+        suggestions.add(new Suggestion().setTitle("Non"));
         fulfillmentMessages.add(new FulfillmentMessages().
                 setSuggestions(new Suggestions().
                         setSuggestions(suggestions)
                 )
         );
 
-
-
         response.setFulfillmentMessages(fulfillmentMessages);
-
         return response;
     }
 
