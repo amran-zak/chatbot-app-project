@@ -21,7 +21,7 @@ public class AskGenreCommand implements WebhookCommand {
         fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
         Payload payload = new Payload();
-        payload.setSlack(new Slack().setText("Tres bien. Quel genre de films veux-tu voir ?"));
+        payload.setSlack(new Slack().setText("Tres bien. Quel genre de films veux-tu voir ? coucou"));
         fulfillmentMessages.add(new FulfillmentMessages().setPayload(payload));
 
         /*java.util.List<SimpleResponse> sampleResponses;
