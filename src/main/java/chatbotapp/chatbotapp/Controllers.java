@@ -24,8 +24,14 @@ public class Controllers {
 
     private WebhookInvocator webhookInvocator;
 
-      
-     @PostMapping("/examen-pizza-app")
+
+    @GetMapping("/")
+    public String hello() {
+        return "Bienvenue dans app-commande-pizza";
+    }
+
+
+    @PostMapping("/commande-pizza")
     public WebhookResponse commandePizza(@RequestBody WebhookRequest newWebRequest) {
         return webhookInvocator.execute(newWebRequest);
     }

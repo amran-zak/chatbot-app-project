@@ -15,7 +15,7 @@ public class DisplayPizza implements WebhookCommand {
     public WebhookResponse execute(WebhookRequest request) {
         WebhookResponse response = new WebhookResponse();
 
-        if(request.getQueryResult().getParameters().get("pizzaName").equals("Base Créme")) {
+        if(request.getQueryResult().getParameters().get("pizzaName").equals("Classiques")) {
             java.util.List<FulfillmentMessages> fulfillmentMessages;
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
@@ -64,14 +64,14 @@ public class DisplayPizza implements WebhookCommand {
             response.setFulfillmentMessages(fulfillmentMessages);
             return  response;
         }
-        else if(request.getQueryResult().getParameters().get("pizzaName").equals("Base Tomate")) {
+        else if(request.getQueryResult().getParameters().get("pizzaName").equals("Gourmandes")) {
             java.util.List<FulfillmentMessages> fulfillmentMessages;
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
             java.util.List<SimpleResponse> sampleResponses;
             sampleResponses = new ArrayList<SimpleResponse>();
             sampleResponses.add(new SimpleResponse().setSsml("").
-                    setDisplayText("").setTextToSpeech("Tres bon choix \uD83D\uDC4D, laquelle choisis-tu \uD83E\uDD14?"));
+                    setDisplayText("").setTextToSpeech("Tres bon choix \uD83D\uDC4D, laquelle choisis-tu \uD83E\uDD14 ?"));
             fulfillmentMessages.add(new FulfillmentMessages().
                     setSimpleResponses(new SimpleResponses().setSimpleResponses(sampleResponses))
             );
@@ -113,7 +113,7 @@ public class DisplayPizza implements WebhookCommand {
             response.setFulfillmentMessages(fulfillmentMessages);
             return response;
         }
-        else if(request.getQueryResult().getParameters().get("pizzaName").equals("Base sucrée")) {
+        else if(request.getQueryResult().getParameters().get("pizzaName").equals("Végétariennes")) {
             java.util.List<FulfillmentMessages> fulfillmentMessages;
             fulfillmentMessages = new ArrayList<FulfillmentMessages>();
 
